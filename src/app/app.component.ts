@@ -6,5 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'paste-from-clipboard';
+
+  textArray = [] as string[];
+
+  getFromClipboard() {
+    navigator.clipboard.readText().then(res => {
+      this.textArray.unshift(res);
+    })
+  }
+
+
 }
