@@ -1,3 +1,11 @@
 <button style="border-radius: 0.25rem;"
         (click)="getFromClipboard()">Paste From Clipboard</button>
-<div *ngFor="let text of textArray">{{text}}</div>
+<div class="bg">
+  <div *ngFor="let text of textArray; let first = first"
+       [ngStyle]="{'margin-top': first? '10px': ''}">
+    <span [ngStyle]="{'font-weight': first ? 'bold': ''}">
+      {{text}}
+    </span>
+    <hr *ngIf="first">
+  </div>
+</div>
